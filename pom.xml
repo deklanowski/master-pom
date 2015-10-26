@@ -1,0 +1,1847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.deklanowski</groupId>
+    <artifactId>master</artifactId>
+    <packaging>pom</packaging>
+    <version>1-SNAPSHOT</version>
+    <name>Master POM for org.deklanowski</name>
+    <inceptionYear>2015</inceptionYear>
+
+
+    <description>
+        Master pom contains commonly used dependencies and plugins with encoded conventions for org.deklanowski.
+    </description>
+
+
+    <prerequisites>
+        <maven>3.2.0</maven>
+    </prerequisites>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- maven compiler plugin configuration -->
+        <sourceLevel>1.8</sourceLevel>
+        <targetLevel>${sourceLevel}</targetLevel>
+        <compiler.fork>true</compiler.fork>
+
+        <!-- Framework versions need to be aligned with primary execution environments  -->
+        <!-- e.g., Apache Karaf where applicable.                       -->
+        <!-- Do not change any of these without consultation.                           -->
+        <karaf.version>3.0.4</karaf.version>
+        <pax-exam.version>4.5.0</pax-exam.version>
+        <felix.gogo.version>0.16.2</felix.gogo.version>
+        <camel.version>2.16.0</camel.version>
+        <cxf.version>3.0.6</cxf.version>
+        <activemq.version>5.12.0</activemq.version>
+        <osgi.version>5.0.0</osgi.version>
+
+        <!-- Spring version for boot-base applications -->
+        <spring.version>4.2.1.RELEASE</spring.version>
+        <spring-data-commons.version>1.10.1.RELEASE</spring-data-commons.version>
+
+
+        <netty3.version>3.10.1.Final</netty3.version>
+        <netty.version>4.0.27.Final</netty.version>
+
+        <!-- Kafka -->
+        <kafka.version>0.8.2.1</kafka.version>
+        <scala-library.version>2.11.7</scala-library.version>
+
+
+        <!-- Cassandra Java Driver -->
+        <java-driver.version>2.1.7.1</java-driver.version>
+        <elasticsearch.version>1.7.2</elasticsearch.version>
+
+
+        <slf4j.version>1.7.5</slf4j.version>
+        <log4j.version>1.2.17</log4j.version>
+        <logback.version>1.1.3</logback.version>
+        <logback-encoder.version>4.5.1</logback-encoder.version>
+
+
+
+        <servicemix.aopalliance.version>1.0_6</servicemix.aopalliance.version>
+        <org.apache.servicemix.bundles.ognl.version>3.0.11_1</org.apache.servicemix.bundles.ognl.version>
+        <geronimo-jms_1.1_spec.version>1.1.1</geronimo-jms_1.1_spec.version>
+        <geronimo-j2ee-management_1.1_spec.version>1.0.1</geronimo-j2ee-management_1.1_spec.version>
+        <geronimo-atinject_1.0_spec.version>1.0</geronimo-atinject_1.0_spec.version>
+        <geronimo-jta_1.1_spec>1.1.1</geronimo-jta_1.1_spec>
+        <geronimo-annotation_1.0_spec.version>1.1.1</geronimo-annotation_1.0_spec.version>
+        <geronimo-servlet.version>1.0</geronimo-servlet.version>
+        <geronimo-validation.version>1.1</geronimo-validation.version>
+        <bval.version>0.5</bval.version>
+        <geronimo-jaxrs-specs.version>1.0</geronimo-jaxrs-specs.version>
+        <javax-rs.version>1.1.1</javax-rs.version>
+        <javax-rs-spec.version>2.4.0</javax-rs-spec.version>
+        <jcip-annotations.version>1.0.0</jcip-annotations.version>
+        <javax.annotation.version>1.2</javax.annotation.version>
+        <jsr305.version>3.0.1</jsr305.version>
+
+
+        <ant.core.version>1.8.2</ant.core.version>
+        <fasterxml-jackson.version>2.5.1</fasterxml-jackson.version>
+        <fasterxml-classmate.version>1.2.0</fasterxml-classmate.version>
+        <codehaus-jackson.version>1.9.12</codehaus-jackson.version>
+        <woodstox.stax2.version>3.1.4</woodstox.stax2.version>
+        <stax2-api-bundle-version>3.1.1</stax2-api-bundle-version>
+        <woodstox-version>4.1.4</woodstox-version>
+        <woodstox-core-bundle-version>${woodstox-version}</woodstox-core-bundle-version>
+        <javassist.version>3.19.0-GA</javassist.version>
+
+
+        <!-- keep at 15.0 for now until upgrade to Cassandra 2.1.x https://issues.apache.org/jira/browse/CASSANDRA-6639 -->
+        <guava.version>15.0</guava.version>
+
+        <jasypt.version>1.9.0</jasypt.version>
+        <metrics-core.version>3.0.2</metrics-core.version>
+
+        <!-- A better UUID -->
+        <uuid.version>3.4.0</uuid.version>
+
+        <gson.version>2.3.1</gson.version>
+        <groovy-all.version>2.4.4</groovy-all.version>
+        <opencsv.version>2.0</opencsv.version>
+        <javax.mail.version>1.4.5</javax.mail.version>
+        <joda.time.version>2.7</joda.time.version>
+        <joda.convert.version>1.7</joda.convert.version>
+
+        <antlr.version>3.1.3</antlr.version>
+        <antlr2.version>2.7.7</antlr2.version>
+        <stringtemplate.version>3.2.0</stringtemplate.version>
+        <antlr4.version>4.5.1-1</antlr4.version>
+
+
+        <junit.version>4.12</junit.version>
+        <fest-assert.version>2.0M10</fest-assert.version>
+        <unitils.version>3.3</unitils.version>
+        <mockito.version>1.10.19</mockito.version>
+        <hamcrest.version>1.3</hamcrest.version>
+        <mockftp-server.version>2.6</mockftp-server.version>
+
+        <aspectjrt.osgi.version>1.6.1</aspectjrt.osgi.version>
+        <aspectjweaver-osgi.version>1.7.0</aspectjweaver-osgi.version>
+
+
+        <!-- Maven Plugin versions -->
+        <maven-clean-plugin.version>2.6.1</maven-clean-plugin.version>
+        <maven-checkstyle-plugin.version>2.14</maven-checkstyle-plugin.version>
+        <maven-compiler-plugin.version>3.2</maven-compiler-plugin.version>
+        <maven-eclipse-plugin.version>2.9</maven-eclipse-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <buildnumber-maven-plugin.version>1.3</buildnumber-maven-plugin.version>
+        <build-helper-maven-plugin.version>1.8</build-helper-maven-plugin.version>
+        <maven-failsafe-plugin.version>2.18.1</maven-failsafe-plugin.version>
+        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
+        <maven-assembly-plugin.version>2.5.3</maven-assembly-plugin.version>
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <maven-source-plugin.version>2.4</maven-source-plugin.version>
+        <maven-jxr-plugin.version>2.5</maven-jxr-plugin.version>
+        <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+        <maven-javadoc-plugin.version>2.10.1</maven-javadoc-plugin.version>
+        <maven-project-info-reports-plugin.version>2.8</maven-project-info-reports-plugin.version>
+        <maven-bundle-plugin.version>2.5.3</maven-bundle-plugin.version>
+        <maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
+        <maven-depends-plugin.version>1.2</maven-depends-plugin.version>
+        <maven-release-plugin.version>2.5.1</maven-release-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-site-plugin.version>3.4</maven-site-plugin.version>
+        <maven-pax-plugin.version>1.5</maven-pax-plugin.version>
+        <maven-pmd-plugin.version>3.4</maven-pmd-plugin.version>
+        <maven-enforcer-plugin.version>1.3.1</maven-enforcer-plugin.version>
+        <maven-scm-plugin.version>1.9.4</maven-scm-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+
+        <versions-maven-plugin.version>2.2</versions-maven-plugin.version>
+        <jgitflow-maven-plugin.version>1.0-m5.1</jgitflow-maven-plugin.version>
+        <!-- maven plugin related  -->
+        <git-commit-id-plugin.version>2.1.11</git-commit-id-plugin.version>
+        <!-- Each time plugin is run this property will be defined -->
+        <git.commit.id />
+
+
+
+        <!-- Default bundle metadata conventions: may be overidden for individual bundles if needed -->
+        <!-- see maven-bundle-plugin default configuration below -->
+        <bundle.name>${project.name}</bundle.name>
+        <bundle.symbolicName>${project.groupId}.${project.artifactId}</bundle.symbolicName>
+        <bundle.version>${project.version}</bundle.version>
+        <!-- bundle namespace is always defined in the bundle itself -->
+        <bundle.namespace />
+
+
+        <!-- Apache Commons -->
+        <commons-cli.version>1.2</commons-cli.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-lang3.version>3.4</commons-lang3.version>
+        <commons-pool.version>1.6</commons-pool.version>
+        <commons-logging.version>1.2</commons-logging.version>
+        <commons-io.version>2.4</commons-io.version>
+        <commons-collections.version>3.2.1</commons-collections.version>
+        <commons-codec.version>1.10</commons-codec.version>
+        <commons-net.version>3.3</commons-net.version>
+        <commons-beanutils.version>1.9.2</commons-beanutils.version>
+
+
+        <!--
+            Geohash encoding and decoding utilities including bounding box coverage.
+            - https://github.com/davidmoten/geo
+        -->
+        <davidmoten-geo.version>0.7.1</davidmoten-geo.version>
+        <davidmoten-grumpy.version>0.2.2</davidmoten-grumpy.version>
+
+
+        <!-- Sonar and test coverage with jacoco   -->
+        <jacoco.version>0.7.5.201505241946</jacoco.version>
+
+        <sonar-jacoco-listeners.version>3.6</sonar-jacoco-listeners.version>
+
+        <sonar.language>java</sonar.language>
+
+        <!-- Tells Sonar to use jacoco for coverage results -->
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+
+        <!-- The Sonar Jacoco Listener for JUnit to extract coverage details per test -->
+        <sonar-jacoco-listeners.version>3.2</sonar-jacoco-listeners.version>
+
+        <!-- Don't let Sonar execute tests. We will ask it to Maven -->
+        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+
+        <!-- The providerType property jacoco.outputDir needs to be overriden on the command line
+        with an absolute path if you want to merge results from all modules.
+        Example in a Jenkins build where ${WORKSPACE} is defined and your project in the root directory of the workspace :
+
+
+        $ mvn clean install -Djacoco.outputDir=${WORKSPACE}/target
+
+        Note that unfortunately using the following does not work because of
+
+        http://jira.codehaus.org/browse/SONAR-3427:
+
+        <jacoco.outputDir>${session.executionRootDirectory}/target/</jacoco.outputDir>
+        -->
+        <jacoco.outputDir>${project.build.directory}</jacoco.outputDir>
+
+        <!-- Jacoco output file for UTs -->
+        <jacoco.out.ut.file>jacoco-ut.exec</jacoco.out.ut.file>
+
+        <!-- Tells Sonar where the Jacoco coverage result file is located for Unit Tests -->
+        <sonar.jacoco.reportPath>${jacoco.outputDir}/${jacoco.out.ut.file}</sonar.jacoco.reportPath>
+
+        <!-- Jacoco output file for ITs -->
+        <jacoco.out.it.file>jacoco-it.exec</jacoco.out.it.file>
+
+        <!-- Tells Sonar where the Jacoco coverage result file is located for Integration Tests -->
+        <sonar.jacoco.itReportPath>${jacoco.outputDir}/${jacoco.out.it.file}</sonar.jacoco.itReportPath>
+
+        <!-- JaCoCo code coverage configuration -->
+        <jacoco.agent.ut.arg />
+        <jacoco.agent.it.arg />
+
+
+        <h2.version>1.3.167</h2.version>
+    </properties>
+
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- ============================================== -->
+            <!--                Spring Boot                     -->
+            <!-- ============================================== -->
+
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-actuator</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            Spring boot admin                   -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-starter-client</artifactId>
+                <version>${spring-boot-admin.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!--            Spring batch                        -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.springframework.batch</groupId>
+                <artifactId>spring-batch-core</artifactId>
+                <version>${spring-batch.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.batch</groupId>
+                <artifactId>spring-batch-infrastructure</artifactId>
+                <version>${spring-batch.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.batch</groupId>
+                <artifactId>spring-batch-integration</artifactId>
+                <version>${spring-batch.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!--            spring-data                         -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>${spring-data-commons.version}</version>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            kafka                               -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala-library.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka_2.10</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            Camel                               -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-core</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-spring</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-netty</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-ftp</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-jms</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-quartz2</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-blueprint</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-jackson</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-ssh</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-xstream</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel.karaf</groupId>
+                <artifactId>camel-karaf-commands</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-core-osgi</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-test</artifactId>
+                <version>${camel.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-test-blueprint</artifactId>
+                <version>${camel.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-test-spring</artifactId>
+                <version>${camel.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-cxf</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-spring-javaconfig</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-spring-boot</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-metrics</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-kafka</artifactId>
+                <version>${camel.version}</version>
+                <!--
+                   Align scala lib always with that supported by camel release.
+                   See mvn:org.scala-lang:scala-library dependency in this parent.
+                 -->
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.scala-lang</groupId>
+                        <artifactId>scala-library</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-resources.sql</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.camel</groupId>
+                <artifactId>camel-sql</artifactId>
+                <version>${camel.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.camel.karaf</groupId>
+                <artifactId>apache-camel</artifactId>
+                <version>${camel.version}</version>
+                <classifier>features</classifier>
+                <type>xml</type>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            Database                            -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>com.datastax.cassandra</groupId>
+                <artifactId>cassandra-driver-core</artifactId>
+                <version>${java-driver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!--            Netty                               -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty</artifactId>
+                <version>${netty3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            Karaf                               -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.apache.karaf.features</groupId>
+                <artifactId>org.apache.karaf.features.core</artifactId>
+                <version>${karaf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>apache-karaf</artifactId>
+                <version>${karaf.version}</version>
+                <type>zip</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.karaf</groupId>
+                        <artifactId>org.apache.karaf.client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf</groupId>
+                <artifactId>apache-karaf</artifactId>
+                <version>${karaf.version}</version>
+                <type>tar.gz</type>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.karaf</groupId>
+                        <artifactId>org.apache.karaf.client</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.features</groupId>
+                <artifactId>standard</artifactId>
+                <version>${karaf.version}</version>
+                <classifier>features</classifier>
+                <type>xml</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.features</groupId>
+                <artifactId>enterprise</artifactId>
+                <version>${karaf.version}</version>
+                <classifier>features</classifier>
+                <type>xml</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.features</groupId>
+                <artifactId>spring</artifactId>
+                <version>${karaf.version}</version>
+                <classifier>features</classifier>
+                <type>xml</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.karaf.features</groupId>
+                <artifactId>framework</artifactId>
+                <version>${karaf.version}</version>
+                <type>kar</type>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            CXF                                 -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-frontend-jaxrs</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-client</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-http-jetty</artifactId>
+                <version>${cxf.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-transports-local</artifactId>
+                <version>${cxf.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-rt-rs-extension-providers</artifactId>
+                <version>${cxf.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-testutils</artifactId>
+                <version>${cxf.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.cxf.karaf</groupId>
+                <artifactId>apache-cxf</artifactId>
+                <version>${cxf.version}</version>
+                <classifier>features</classifier>
+                <type>xml</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.servicemix.specs</groupId>
+                <artifactId>org.apache.servicemix.specs.jsr339-api-2.0</artifactId>
+                <version>${javax-rs-spec.version}</version>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!-- =           ActiveMQ                         = -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-client</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-broker</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>kahadb</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-console</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-ra</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-pool</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-karaf</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-camel</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-spring</artifactId>
+                <version>${activemq.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-karaf</artifactId>
+                <version>${activemq.version}</version>
+                <classifier>features</classifier>
+                <type>xml</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-karaf</artifactId>
+                <version>${activemq.version}</version>
+                <classifier>features-core</classifier>
+                <type>xml</type>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!-- Geronimo spec APIs                             -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jms_1.1_spec</artifactId>
+                <version>${geronimo-jms_1.1_spec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-annotation_1.0_spec</artifactId>
+                <version>${geronimo-annotation_1.0_spec.version}</version>
+            </dependency>
+
+            <!-- javax.inject.Inject annotation used in Pax Exam -->
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-atinject_1.0_spec</artifactId>
+                <version>${geronimo-atinject_1.0_spec.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-servlet_3.0_spec</artifactId>
+                <version>${geronimo-servlet.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-validation_1.0_spec</artifactId>
+                <version>${geronimo-validation.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.geronimo.specs</groupId>
+                <artifactId>geronimo-jaxrs_1.1_spec</artifactId>
+                <version>${geronimo-jaxrs-specs.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>javax.ws.rs</groupId>
+                <artifactId>jsr311-api</artifactId>
+                <version>${javax-rs.version}</version>
+            </dependency>
+
+            <!-- Bean validation implementation -->
+            <dependency>
+                <groupId>org.apache.bval</groupId>
+                <artifactId>bval-core</artifactId>
+                <version>${bval.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.bval</groupId>
+                <artifactId>bval-jsr303</artifactId>
+                <version>${bval.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.bval</groupId>
+                <artifactId>org.apache.bval.bundle</artifactId>
+                <version>${bval.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.servicemix.bundles</groupId>
+                <artifactId>org.apache.servicemix.bundles.ognl</artifactId>
+                <version>${org.apache.servicemix.bundles.ognl.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt.osgi</artifactId>
+                <version>${aspectjrt.osgi.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver.osgi</artifactId>
+                <version>${aspectjrt.osgi.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!--             Spring                             -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <!-- required by transitive dependecies in karaf due tu cassandra clients -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-logging</groupId>
+                        <artifactId>commons-logging</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!--            Apache Commons                      -->
+            <!-- ============================================== -->
+
+            <dependency>
+                <groupId>commons-cli</groupId>
+                <artifactId>commons-cli</artifactId>
+                <version>${commons-cli.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>${commons-lang.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-collections</groupId>
+                <artifactId>commons-collections</artifactId>
+                <version>${commons-collections.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>${commons-codec.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-logging.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-pool</groupId>
+                <artifactId>commons-pool</artifactId>
+                <version>${commons-pool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>${commons-beanutils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.annotation</groupId>
+                <artifactId>javax.annotation-api</artifactId>
+                <version>${javax.annotation.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.servicemix.bundles</groupId>
+                <artifactId>org.apache.servicemix.bundles.aopalliance</artifactId>
+                <version>${servicemix.aopalliance.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.stephenc.eaio-uuid</groupId>
+                <artifactId>uuid</artifactId>
+                <version>${uuid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.groovy</groupId>
+                <artifactId>groovy-all</artifactId>
+                <version>${groovy-all.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.codahale.metrics</groupId>
+                <artifactId>metrics-core</artifactId>
+                <version>${metrics-core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.mail</groupId>
+                <artifactId>mail</artifactId>
+                <version>${javax.mail.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!--  Antlr                                         -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>com.springsource.antlr</artifactId>
+                <version>${antlr2.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>com.springsource.org.antlr.runtime</artifactId>
+                <version>${antlr.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>com.springsource.org.antlr.stringtemplate</artifactId>
+                <version>${stringtemplate.version}</version>
+            </dependency>
+
+
+            <!-- ANTLR4-->
+            <dependency>
+                <groupId>org.antlr</groupId>
+                <artifactId>antlr4-runtime</artifactId>
+                <version>${antlr4.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.codehaus.woodstox</groupId>
+                <artifactId>woodstox-core-asl</artifactId>
+                <version>${woodstox-version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.woodstox</groupId>
+                <artifactId>stax2-api</artifactId>
+                <version>${woodstox.stax2.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!--              Osgi Framework                    -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.core</artifactId>
+                <version>${osgi.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>org.osgi.compendium</artifactId>
+                <version>${osgi.version}</version>
+            </dependency>
+
+            <!-- ================================================ -->
+            <!-- Logging                                          -->
+            <!-- ================================================ -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jul-to-slf4j</artifactId>
+                <scope>test</scope>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <scope>test</scope>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.logstash.logback</groupId>
+                <artifactId>logstash-logback-encoder</artifactId>
+                <version>${logback-encoder.version}</version>
+            </dependency>
+
+
+            <!-- ================================================ -->
+            <!-- Jackson & fasterxml                              -->
+            <!-- ================================================ -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-base</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-json-provider</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.jaxrs</groupId>
+                <artifactId>jackson-jaxrs-smile-provider</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-smile</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-csv</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.module</groupId>
+                <artifactId>jackson-module-jaxb-annotations</artifactId>
+                <version>${fasterxml-jackson.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.fasterxml</groupId>
+                <artifactId>classmate</artifactId>
+                <version>${fasterxml-classmate.version}</version>
+            </dependency>
+
+            <!-- older codehaus jackson stuff -->
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-core-asl</artifactId>
+                <version>${codehaus-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-mapper-asl</artifactId>
+                <version>${codehaus-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-jaxrs</artifactId>
+                <version>${codehaus-jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.jackson</groupId>
+                <artifactId>jackson-xc</artifactId>
+                <version>${codehaus-jackson.version}</version>
+            </dependency>
+
+
+            <!-- ============================================================== -->
+            <!-- Gson                                                           -->
+            <!-- ============================================================== -->
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <!-- ============================================================== -->
+            <!-- Utils                                                         -->
+            <!-- ============================================================== -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda.time.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.joda</groupId>
+                <artifactId>joda-convert</artifactId>
+                <version>${joda.convert.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.jasypt</groupId>
+                <artifactId>jasypt</artifactId>
+                <version>${jasypt.version}</version>
+            </dependency>
+
+
+            <!-- ============================================================== -->
+            <!-- Geohash utilities                                        -->
+            <!-- ============================================================== -->
+
+            <!--
+               These babies need to be wrapped up for OSGi use:
+               Here is how to include them in your karaf feature descriptor:
+
+                <bundle>wrap:mvn:com.github.davidmoten/geo/${geo.version}</bundle>
+                <bundle>wrap:mvn:com.github.davidmoten/grumpy-core/${grumpy-core.version}</bundle>
+            -->
+            <dependency>
+                <groupId>com.github.davidmoten</groupId>
+                <artifactId>geo</artifactId>
+                <version>${davidmoten-geo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.davidmoten</groupId>
+                <artifactId>grumpy-core</artifactId>
+                <version>${davidmoten-grumpy.version}</version>
+            </dependency>
+
+            <!-- ============================================== -->
+            <!-- Pax Exam Dependencies                          -->
+            <!-- ============================================== -->
+
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam</artifactId>
+                <version>${pax-exam.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-junit4</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-container-native</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-container-karaf</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-inject</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-extender-service</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!-- Preferred link because it does not require an mvn url handler implicitely. -->
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-link-mvn</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.ops4j.pax.exam</groupId>
+                <artifactId>pax-exam-link-assembly</artifactId>
+                <version>${pax-exam.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.gogo.runtime</artifactId>
+                <version>${felix.gogo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>org.apache.felix.gogo.commands</artifactId>
+                <version>${felix.gogo.version}</version>
+            </dependency>
+
+
+            <!-- ============================================== -->
+            <!-- Test                                           -->
+            <!-- ============================================== -->
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-all</artifactId>
+                <version>${hamcrest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrest.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.easytesting</groupId>
+                <artifactId>fest-assert-core</artifactId>
+                <version>${fest-assert.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mockftpserver</groupId>
+                <artifactId>MockFtpServer</artifactId>
+                <version>${mockftp-server.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.unitils</groupId>
+                <artifactId>unitils-test</artifactId>
+                <version>${unitils.version}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-nop</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <version>${maven-enforcer-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${maven-resources-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>buildnumber-maven-plugin</artifactId>
+                    <version>${buildnumber-maven-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <version>${karaf.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-eclipse-plugin</artifactId>
+                    <version>${maven-eclipse-plugin.version}</version>
+                    <configuration>
+                        <projectNameTemplate>[groupId].[artifactId]</projectNameTemplate>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>${maven-dependency-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-site-plugin</artifactId>
+                    <version>${maven-site-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>${maven-pmd-plugin.version}</version>
+                    <configuration>
+                        <targetJdk>${sourceLevel}</targetJdk>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>${maven-project-info-reports-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <version>${maven-javadoc-plugin.version}</version>
+                    <configuration>
+                        <additionalparam>-Xdoclint:none</additionalparam>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jxr-plugin</artifactId>
+                    <version>${maven-jxr-plugin.version}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>${maven-checkstyle-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>${sonar-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <version>${maven-assembly-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-antrun-plugin</artifactId>
+                    <version>${maven-antrun-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${maven-clean-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>${maven-source-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${maven-deploy-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.servicemix.tooling</groupId>
+                    <artifactId>depends-maven-plugin</artifactId>
+                    <version>${maven-depends-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <id>generate-depends-file</id>
+                            <goals>
+                                <goal>generate-depends-file</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+
+                <plugin>
+                    <!--
+                     | The following configuration is the default convention for IPM and related
+                     | projects and is a good convention in general.
+                    -->
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <instructions combine.self="override">
+                            <Bundle-Name>${bundle.name}</Bundle-Name>
+                            <Bundle-SymbolicName>${bundle.symbolicName}</Bundle-SymbolicName>
+                            <Bundle-Version>${bundle.version}</Bundle-Version>
+                            <!--
+                             | assume public classes are in the top package, and private classes are under ".internal"
+                            -->
+                            <Export-Package>
+                                !${bundle.namespace}.internal.*,${bundle.namespace}.*;version="${bundle.version}"
+                            </Export-Package>
+                            <Private-Package>${bundle.namespace}.internal.*</Private-Package>
+                            <!--
+                             | each module can override these defaults in their osgi.bnd file
+                            -->
+                            <_include>-osgi.bnd</_include>
+                            <Implementation-Version>${project.version} Build: ${buildNumber} Timestamp: ${timestamp}
+                            </Implementation-Version>
+                        </instructions>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>${maven-release-plugin.version}</version>
+                    <configuration>
+                        <scmCommentPrefix>#other ${project.artifactId} [maven-release-plugin]</scmCommentPrefix>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <preparationGoals>clean install</preparationGoals>
+                        <resume>true</resume>
+                        <arguments>-Dmaven.test.skip=true</arguments>
+                        <checkModificationExcludes>
+                            <checkModificationExclude>**/*.iml</checkModificationExclude>
+                            <checkModificationExclude>.idea</checkModificationExclude>
+                        </checkModificationExcludes>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <groupId>pl.project13.maven</groupId>
+                    <artifactId>git-commit-id-plugin</artifactId>
+                    <version>${git-commit-id-plugin.version}</version>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>revision</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <verbose>true</verbose>
+                        <dateFormat>yyyy-MM-dd'T'HH:mm:ssZ</dateFormat>
+                        <generateGitPropertiesFile>true</generateGitPropertiesFile>
+                        <generateGitPropertiesFilename>${project.build.outputDirectory}/git.properties
+                        </generateGitPropertiesFilename>
+                    </configuration>
+                </plugin>
+
+
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${maven-failsafe-plugin.version}</version>
+                </plugin>
+
+                <plugin>
+                    <groupId>org.antlr</groupId>
+                    <artifactId>antlr4-maven-plugin</artifactId>
+                    <version>${antlr4.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+
+        <!-- Plugin executions common to all modules              -->
+        <!-- WARNING: choose wisely what yee placeth herein       -->
+        <!-- as it will end up being inherited by all children.   -->
+        <!-- Configurations can be overridden but mavens plugin   -->
+        <!-- override mechanism is flaky and inconsistent.        -->
+        <!-- To override an inherited plugin configuration define -->
+        <!-- the opening configuration tag as follows:
+
+                <configuration combine.self="override">
+
+             Note: this can also be available in child elements of
+             a configuration element. See specific plugin documentation
+             for details and use your IDE's completion function
+             to examine what attributes are available to you.
+        -->
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${sourceLevel}</source>
+                    <target>${targetLevel}</target>
+                    <maxmem>512M</maxmem>
+                    <fork>${compiler.fork}</fork>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>[3.2,4)</version>
+                                </requireMavenVersion>
+                                <requireJavaVersion>
+                                    <version>[1.8.0-45,1.9)</version>
+                                </requireJavaVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>buildnumber-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>create</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!--
+                     doCheck and doUpdate actually talk to repository if it's true,
+                     Check would check that there are no local changes.
+                    -->
+                    <!-- override this on command line when releasing                -->
+                    <!-- -Dmaven.buildNumber.doCheck=true                           -->
+                    <doCheck>false</doCheck>
+
+                    <!-- if true update the buildnumber with the latest scm revision -->
+                    <!-- override this on command line when releasing                -->
+                    <!-- -Dmaven.buildNumber.doUpdate=true                           -->
+                    <doUpdate>false</doUpdate>
+
+                    <!-- same scm revision for all modules -->
+                    <getRevisionOnlyOnce>true</getRevisionOnlyOnce>
+
+                    <!-- if no scm available use this string - prevents exception -->
+                    <revisionOnScmFailure>NOREVISION</revisionOnScmFailure>
+
+                    <timestampFormat>{0,date,yyyy-MM-dd hh:mm:ss}</timestampFormat>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>deploy-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <extensions>true</extensions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>${maven-scm-plugin.version}</version>
+                <configuration>
+                    <tag>${project.artifactId}-${project.version}</tag>
+                </configuration>
+            </plugin>
+
+            <!--
+                Used for releasing git-based projects instead of maven release plugin
+                See https://bitbucket.org/atlassian/jgit-flow/wiki/Home
+            -->
+            <plugin>
+                <groupId>external.atlassian.jgitflow</groupId>
+                <artifactId>jgitflow-maven-plugin</artifactId>
+                <version>${jgitflow-maven-plugin.version}</version>
+                <configuration>
+                    <!-- Enable this to push to origin using SSH keys -->
+                    <enableSshAgent>true</enableSshAgent>
+
+                    <!-- Keep your maven sub modules at the same version as the parent POM -->
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <!--
+                      Pushing in-development features to origin allows all devs to see what each other
+                      are working on
+                    -->
+                    <pushFeatures>true</pushFeatures>
+
+                    <!--
+                      This allows the CI server (e.g. Jenkins) to automatically push new releases to
+                      origin; you can then either manually deploy them or, if you are doing Continuous
+                      Deployments, auto-deploy them to prod
+                    -->
+                    <pushReleases>true</pushReleases>
+
+                    <!--
+                      Hot Fixes should be pushed to origin as well so that any dev can pick them up
+                    -->
+                    <pushHotfixes>true</pushHotfixes>
+
+                    <!--
+                      Prevents deployments from dev workstations so that they can be done by a CI
+                      server
+                    -->
+                    <noDeploy>true</noDeploy>
+
+                    <flowInitContext>
+                        <!--
+                          Default branch conventions
+                        -->
+                        <masterBranchName>master</masterBranchName>
+                        <developBranchName>develop</developBranchName>
+                        <featureBranchPrefix>feature-</featureBranchPrefix>
+                        <releaseBranchPrefix>release-</releaseBranchPrefix>
+                        <hotfixBranchPrefix>hotfix-</hotfixBranchPrefix>
+                        <versionTagPrefix>${project.artifactId}-</versionTagPrefix>
+                    </flowInitContext>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+    <profiles>
+        <profile>
+            <id>coverage</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <!--forkCount>1</forkCount>
+                            <reuseForks>true</reuseForks-->
+                            <argLine>-Xmx1024m ${jacoco.agent.ut.arg}</argLine>
+                            <!-- Specific to generate mapping between tests and covered code -->
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>org.sonar.java.jacoco.JUnitListener</value>
+                                </property>
+                            </properties>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <!-- number of VMs forked = 2 x Number of cores -->
+                            <!--forkCount>1</forkCount>
+                            <reuseForks>true</reuseForks-->
+                            <argLine>-Xmx2g ${jacoco.agent.it.arg}</argLine>
+                            <!-- Specific to generate mapping between tests and covered code -->
+                            <properties>
+                                <property>
+                                    <name>listener</name>
+                                    <value>org.sonar.java.jacoco.JUnitListener</value>
+                                </property>
+                            </properties>
+                            <!-- Let's put fail-safe reports with surefire to have access to tests failures/success reports in sonar -->
+                            <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jacoco</groupId>
+                        <artifactId>jacoco-maven-plugin</artifactId>
+                        <version>${jacoco.version}</version>
+                        <executions>
+                            <!--
+                                Prepares property, jacoco.agent.ut.arg, which contains the jacoco agent jvm
+                                parameters needed to instrument the code under test. This is passed to the surefire
+                                plugin's argLine configuration
+                            -->
+                            <execution>
+                                <id>prepare-ut-agent</id>
+                                <phase>process-test-classes</phase>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${sonar.jacoco.reportPath}</destFile>
+                                    <propertyName>jacoco.agent.ut.arg</propertyName>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                            <!--
+                                Prepares a variable, jacoco.agent.ut.arg, that contains the jacoco agent jvm
+                                parameters needed to instrument the code under test. This is passed to the failsafe
+                                plugin's argLine configuration
+                            -->
+                            <execution>
+                                <id>prepare-it-agent</id>
+                                <phase>pre-integration-test</phase>
+                                <goals>
+                                    <goal>prepare-agent</goal>
+                                </goals>
+                                <configuration>
+                                    <destFile>${sonar.jacoco.itReportPath}</destFile>
+                                    <propertyName>jacoco.agent.it.arg</propertyName>
+                                    <append>true</append>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>org.codehaus.sonar-plugins.java</groupId>
+                    <artifactId>sonar-jacoco-listeners</artifactId>
+                    <version>${sonar-jacoco-listeners.version}</version>
+                    <scope>test</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+
+</project>
