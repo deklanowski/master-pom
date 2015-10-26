@@ -16,6 +16,12 @@
     </description>
 
 
+    <scm>
+        <connection>scm:git:git:github.com/deklanowski/master-pom.git</connection>
+        <developerConnection>scm:git:https://github.com/deklanowski/master-pom.git</developerConnection>
+        <url>https://github.com/deklanowski/master-pom</url>
+    </scm>
+
     <prerequisites>
         <maven>3.2.0</maven>
     </prerequisites>
@@ -31,7 +37,7 @@
         <compiler.fork>true</compiler.fork>
 
         <!-- Framework versions need to be aligned with primary execution environments  -->
-        <!-- e.g., Apache Karaf where applicable.                       -->
+        <!-- e.g., Apache Karaf where applicable.                                       -->
         <!-- Do not change any of these without consultation.                           -->
         <karaf.version>3.0.4</karaf.version>
         <pax-exam.version>4.5.0</pax-exam.version>
@@ -251,79 +257,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <!-- ============================================== -->
-            <!--                Spring Boot                     -->
-            <!-- ============================================== -->
-
-            <dependency>
-                <!-- Import dependency management from Spring Boot -->
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-actuator</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-security</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
-
-            <!-- ============================================== -->
-            <!--            Spring boot admin                   -->
-            <!-- ============================================== -->
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-server</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-server-ui</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>de.codecentric</groupId>
-                <artifactId>spring-boot-admin-starter-client</artifactId>
-                <version>${spring-boot-admin.version}</version>
-            </dependency>
-
-
-            <!-- ============================================== -->
-            <!--            Spring batch                        -->
-            <!-- ============================================== -->
-            <dependency>
-                <groupId>org.springframework.batch</groupId>
-                <artifactId>spring-batch-core</artifactId>
-                <version>${spring-batch.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.batch</groupId>
-                <artifactId>spring-batch-infrastructure</artifactId>
-                <version>${spring-batch.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.springframework.batch</groupId>
-                <artifactId>spring-batch-integration</artifactId>
-                <version>${spring-batch.version}</version>
-            </dependency>
-
-
             <!-- ============================================== -->
             <!--            spring-data                         -->
             <!-- ============================================== -->
