@@ -6,7 +6,7 @@
     <groupId>org.deklanowski</groupId>
     <artifactId>master</artifactId>
     <packaging>pom</packaging>
-    <version>2-SNAPSHOT</version>
+    <version>1</version>
     <name>Master POM for org.deklanowski</name>
     <inceptionYear>2015</inceptionYear>
 
