@@ -1,3 +1,23 @@
+#-----------------------
+# folder names to ignore
+#-----------------------
+.idea/
+.settings/
+META-INF/
+target/
+
+#---------------------
+# file names to ignore
+#---------------------
+.project
+.classpath
+*.MF
+*.iml
+*.ipr
+*.iws
+*.log.*
+*.log-*
+*.log
 *.class
 
 # Mobile Tools for Java (J2ME)
